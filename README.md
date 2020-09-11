@@ -1,5 +1,7 @@
 # autohtml
 
+逐步渲染代码
+
 ## Project setup
 ```
 npm install
