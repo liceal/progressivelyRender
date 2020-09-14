@@ -178,7 +178,6 @@ export const style4 = `
 export const style5 = `
 /* 尝试立体一点 */
 .main{
-  padding: 50px 0px;
   justify-content: center;
 }
 .css-code{
@@ -198,7 +197,7 @@ export const style5 = `
 }
 /* 给简历提供一个反馈 */
 .cv-code:hover{
-  box-shadow: 10px -10px 10px #ccc;
+  box-shadow: 10px -10px 5px #ccc;
   transform: skew(5deg, 5deg) rotate(5deg) translateY(-10px);
 }
 
