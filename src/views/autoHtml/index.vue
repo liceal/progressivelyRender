@@ -31,7 +31,7 @@ export default {
     async renderEdit() {
       await this.progressivelyShow(style1, "styleCode", 30, "StyleEditor");
       await this.progressivelyShow(style2, "styleCode", 30, "StyleEditor");
-      await this.progressivelyShow(cv, "cvCode", 20, "CvEditor");
+      await this.progressivelyShow(cv, "cvCode", 10, "CvEditor");
       await this.progressivelyShow(style3, "styleCode", 30, "StyleEditor");
       await this.$nextTick(() => {
         this.isMarked = true;
