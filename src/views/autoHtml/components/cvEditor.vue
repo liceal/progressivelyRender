@@ -13,22 +13,31 @@ export default {
   props: {
     code: {
       type: String,
-      defalut: ""
+      defalut: "",
     },
-    isMarked:{
-      type:Boolean,
-      defalut:false
-    }
+    isMarked: {
+      type: Boolean,
+      defalut: false,
+    },
   },
   computed: {
-    content(){
-      return this.isMarked?marked(this.code):this.code
-    }
+    content() {
+      return this.isMarked ? marked(this.code) : this.code;
+    },
   },
   methods: {
-    goBottom(){
-			this.$refs.container1.scrollTop = 100000
-		}
+    goBottom() {
+      this.$refs.container1.scrollTo({
+        top: this.$refs.container1.scrollHeight,
+        behavior: "smooth",
+      });
+    },
+    goTop() {
+      this.$refs.container1.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    },
   },
 };
 </script>
