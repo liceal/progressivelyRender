@@ -9,7 +9,7 @@
 <script>
 import StyleEditor from "./components/styleEditor";
 import CvEditor from "./components/cvEditor";
-import { cv, style1, style2, style3, style4,style5 } from "./code";
+import { style1, style2, style3, style4, style5 } from "./code";
 
 export default {
   name: "autoHtml",
@@ -22,16 +22,26 @@ export default {
       styleCode: "",
       cvCode: "",
       isMarked: false,
+      cv: "",
     };
   },
   created() {
-    this.renderEdit();
+    fetch("https://cv-five-taupe.vercel.app/static/media/CV.8f9158f2.md", {
+      method: "get",
+    })
+      .then((res) => res.text())
+      .then((res) => {
+        this.cv = res;
+        console.log(res);
+        this.renderEdit();
+      });
   },
   methods: {
     async renderEdit() {
       await this.progressivelyShow(style1, "styleCode", 30, "StyleEditor");
       await this.progressivelyShow(style2, "styleCode", 30, "StyleEditor");
-      await this.progressivelyShow(cv, "cvCode", 10, "CvEditor");
+      await this.progressivelyShow(this.cv, "cvCode", 10, "CvEditor");
+      await this.$refs.CvEditor.goTop();
       await this.progressivelyShow(style3, "styleCode", 30, "StyleEditor");
       await this.$nextTick(() => {
         this.isMarked = true;
@@ -53,7 +63,7 @@ export default {
             let nextCode = TotalCode[nextCodeIndex] ?? "";
             if (nextCode === "\n" && this.$refs[DomName]) {
               this.$nextTick(() => {
-                this.$refs[DomName].goBottom()
+                this.$refs[DomName].goBottom();
               });
             }
             let DelayTime = {
