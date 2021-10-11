@@ -26,7 +26,7 @@ export default {
     };
   },
   created() {
-    fetch("https://cv-five-taupe.vercel.app/static/media/CV.8f9158f2.md", {
+    fetch("https://raw.githubusercontent.com/liceal/cv/master/src/static/CV.md", { //替换成你的简历地址
       method: "get",
     })
       .then((res) => res.text())
