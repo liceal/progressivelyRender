@@ -36,8 +36,11 @@ body{
   margin: 20px;
   width: 48vw;
   height: 80vh;
-  padding-bottom: 20px;
+  padding-bottom: 3rem;
   box-sizing: border-box;
+}
+.css-code>pre{
+  text-wrap: wrap;
 }
 
 /* 代码高亮 */
@@ -61,6 +64,16 @@ export const style2 = `
   height: 80vh;
   background-color: white;
   overflow: auto;
+  padding-bottom: 3rem;
+}
+
+.cv-code>div{
+  text-wrap: wrap;
+}
+
+/* 去掉滚动条 */
+.cv-code::-webkit-scrollbar {
+  display: none;
 }
 `
 
@@ -81,10 +94,6 @@ export const style4 = `
   border-radius: 8px;
   overflow: auto;
   white-space: nowrap;
-}
-
-.cv-code::-webkit-scrollbar {
-  display: none;
 }
 
 .cv-code h1{
@@ -137,4 +146,5 @@ export const style5 = `
   transform: skew(5deg, 5deg) rotate(5deg) translateY(-10px);
 }
 
+/* 好啦～😊 */
 `

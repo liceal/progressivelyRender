@@ -38,16 +38,16 @@ export default {
   },
   methods: {
     async renderEdit() {
-      await this.progressivelyShow(style1, "styleCode", 30, "StyleEditor");
-      await this.progressivelyShow(style2, "styleCode", 30, "StyleEditor");
-      await this.progressivelyShow(this.cv, "cvCode", 10, "CvEditor");
+      await this.progressivelyShow(style1, "styleCode", 5, "StyleEditor");
+      await this.progressivelyShow(style2, "styleCode", 5, "StyleEditor");
+      await this.progressivelyShow(this.cv, "cvCode", 1, "CvEditor");
       await this.$refs.CvEditor.goTop();
-      await this.progressivelyShow(style3, "styleCode", 30, "StyleEditor");
+      await this.progressivelyShow(style3, "styleCode", 5, "StyleEditor");
       await this.$nextTick(() => {
         this.isMarked = true;
       });
-      await this.progressivelyShow(style4, "styleCode", 30, "StyleEditor");
-      await this.progressivelyShow(style5, "styleCode", 30, "StyleEditor");
+      await this.progressivelyShow(style4, "styleCode", 5, "StyleEditor");
+      await this.progressivelyShow(style5, "styleCode", 5, "StyleEditor");
     },
     /**
      * TotalCode 总Code
@@ -61,6 +61,7 @@ export default {
         let showNextCode = async (nextCodeIndex) => {
           if (nextCodeIndex <= CodeLength) {
             let nextCode = TotalCode[nextCodeIndex] ?? "";
+            this[ShowCodeKey] += nextCode;
             if (nextCode === "\n" && this.$refs[DomName]) {
               this.$nextTick(() => {
                 this.$refs[DomName].goBottom();
@@ -74,7 +75,6 @@ export default {
                 DelayTime[
                   TotalCode.substring(nextCodeIndex - 1, nextCodeIndex + 1)
                 ] ?? 0;
-            this[ShowCodeKey] += nextCode;
             setTimeout(() => {
               showNextCode(nextCodeIndex + 1);
             }, Delay + SpecialDelay);
